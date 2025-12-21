@@ -1,8 +1,9 @@
 # AI Text Detection for Academic Integrity
 
 **Student:** Hannah Soliao
-**Module:** Machine Learning
-**Program:** Bsc (Hons) Creative Computing Academic Centre RAK, UAE
+**Registration:** 639188
+**Module:** MACHINE LEARNING (CPU6100-20)
+**Program:** Bsc (Hons) Creative Computing @ Academic Centre RAK, UAE
 
 ## Project Overview
 
