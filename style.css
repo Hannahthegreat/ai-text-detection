@@ -1,0 +1,186 @@
+/* style.css */
+
+/* Import Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* Main container styling */
+.gradio-container {
+  font-family: "Poppins", sans-serif;
+  max-width: 1400px;
+  margin: auto;
+}
+
+/* Header section */
+.header-section {
+  /* background: linear-gradient(135deg, #26a8ff 0%, #2386c7 100%); */
+  background: linear-gradient(-30deg, #26a8ff, #208fdf, #23a6d5, #26d4ff);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.header-title {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.header-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.header-stats {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  color: white;
+  font-weight: 500;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+/* Input/Output sections */
+.input-column,
+.output-column {
+  padding: 1.5rem 0;
+}
+
+/* Textbox styling */
+.textbox-input textarea {
+  border: 2px solid #26a8ff4d !important;
+  border-radius: 8px !important;
+  font-size: 0.95rem !important;
+  transition: border-color 0.3s ease;
+}
+
+.textbox-input textarea:focus {
+  border-color: #0b9dff !important;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+}
+
+/* Button styling */
+.primary-button {
+  /* background: linear-gradient(135deg, #26a8ff 0%, #2386c7 100%) !important; */
+  border: none !important;
+  font-weight: 600 !important;
+  padding: 1rem 2rem !important;
+  border-radius: 8px !important;
+
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  background-image: linear-gradient(
+    to right,
+    #208fdf 0%,
+    #26a8ff 50%,
+    #26d4ff 100%
+  );
+  transition: 0.5s;
+}
+
+.secondary-button {
+  background: #87aec8 !important;
+  color: white !important;
+  border: none !important;
+  font-weight: 600 !important;
+  padding: 1rem 2rem !important;
+  border-radius: 8px !important;
+}
+
+.primary-button:hover,
+.secondary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(102, 126, 234, 0.3) !important;
+  background-position: right center;
+}
+
+/* Specific label styling for output boxes */
+
+.form {
+  border-radius: 1rem !important;
+}
+
+.output-prediction label span,
+.output-confidence label span,
+.output-probs label span,
+.output-stats label span,
+.textbox-input label span {
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+.output-prediction,
+.output-confidence,
+.output-probs,
+.output-stats {
+  padding: 1rem !important;
+}
+
+/* Examples section */
+.examples-section {
+  background: #1f2937;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-top: 2rem;
+}
+
+.examples-title {
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+.footer-section {
+  background: #2d3748;
+  color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+/* Info cards */
+.info-card {
+  background: #1f2937;
+  color: white;
+  border-left: 4px solid #26a8ff;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  box-shadow: 0 2px 4px rgba(157, 202, 226, 0.137);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .header-title {
+    font-size: 1.8rem;
+  }
+
+  .header-subtitle {
+    font-size: 1rem;
+  }
+}
