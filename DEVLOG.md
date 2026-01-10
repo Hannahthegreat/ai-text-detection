@@ -4,181 +4,212 @@
 **Project:** AI Text Detection for Academic Integrity
 **Timeline:** December 18, 2025 - January 10, 2026
 
-## Week 1: Foundation & Data Exploration
+---
 
-###Day 1 - December 18, 2025
-**Goal:** Project setup and environment configuration
+## Phase 1: Foundation & Data Exploration
 
-**Completed:**
+### Week 1 Highlights
 
-- Created project directory structure
-- Set up VS Code with Jupyter extension
-- Created Python virtual environment
-- Installed initial packages (pandas,numpy,matplotlib,seaborn,scikit-learn)
-- Initialized Git repository
-- Created README.md with project information
-- Created all project folders with .gitkeep files
+- **Environment Setup** - VS Code, Python virtual environment, inital dependencies
+- **Dataset Acquisition** - Downloaded AI Text Detection Pile (1.39M samples)
+- **Initial Analysis** - Identified 2.82:1 class imblance, analyzed text characteristics
+- **Key Decision:** Stratified 30% sampling strategy for computational constraints
 
-**Files Created:**
-
-- Project structure (all folders)
-- README.md
-- .gitignore
-- requirements.txt (initial)
-
-**Time Spent:** 3 hours
-
-**Notes:** Development environment ready. All foundational structure in place.
+**Deliverables:** Project structure, data exploration notebook, initial visualizations
 
 ---
 
-### Day 2 - December 19, 2025
+## Phase 2: Data Processing & Feature Engineering (Dec 25-31)
 
-**Goal:** Initial data exploration and understanding
+### Week 2 Highlights
 
-**Completed:**
+- **Data Preprocessing** - Text cleaning, URL removal, normalization
+- **Train/Val/Test Split** - 70-15-15 stratified split (292K/63K/63K samples)
+- **Feature Engineering** - TF-IDF vectorization (5000 features, unigrams + bigrams)
+- **Key Learning:** Class imblanace requires cost-sensitive approaches
 
-- Download AI Text Detection Pile dataset from Hugging Face (~1.3M samples)
-- Created 01_data_exploration.ipynb notebook
-- Converted dataset to pandas DataFrame
-- Created stratified 10% sample (df_sample) for exploration
-- Examine basic structure: 2 columns (text, source), no missing values
-- Analyzed class distribution: ~73.82% human and ~26.18% AI **(2.82:1 imbalance ratio)**
-- Generated visualizatins:
-  - Class distributions bar charts (counts and percetages)
-  - Text length distributions (histograms, box plots, density plots)
-  - Word clouds for both human and AI texts
-- Documented initial observations and patterns
-
-**Key Findings:**
-
-- Significant class imbalance (2.82:1) will require handling during modeling
-- Text length shows human texts are longer than AI. However, AI text has more variations in length compared to human text.
-- No data qulity issues detected
-- Sample successully maintains original proportions
-
-**Files Created:**
-
-- notebooks/01_data_exploration.ipynb
-- data/raw/ai_text_detection_full.parquet (saved for reuse)
-- visualizations/plots/class_distribution.png
-- visualizations/plots/text_length_distributions.png
-- visualizations/plots/wordcloud_human.png
-- visualizations/plots/wordcloud_ai.png
-
-**Time Spent:** 5 hours
-
-**Next Steps:** Deep dataset analysis and quality assessment
+**Deliverables:** Cleaned datset, feature matrices, preprocessing modules
 
 ---
 
-### Day 3 - December 20, 2025
+## Phase 3: Model Development (Jan 1-7)
 
-**Goal:** Deep dataset analysis and quality assessment
+### Jan 1-2: Baseline Models
 
-**Planned:**
+- Implemented Logisttic Regression (84.2% pecision, 80.0% recall)
+- Implemented Naive Bayes (88.8% precision, 39.4% recall)
+- **Insight:** Tree-based models show competitive precison with varying recall
 
-- Analyze text characteristics (sentenc length, word length, vocabulary diversity)
-- Check for duplicates and outliers
-- Create comparitive visualizations
-- Verify label quality (spot-check samples)
+### Jan 5-6: Ensemble Experimentation
 
-**Status:** Not Started
+- Four-model ensemble (72.98% precision) - Naive Bayes contamination
+- Two-model ensemble LR + XGBoost (85.16% precision, 81.24% recall)
+- **Critical Learning:**j Strategic model selection > quantity
 
-### Day 4-5 - December 21-22, 2025 (Weeken)
+### Jan 7: Evaluatin & Analysis
 
-**Goal:** Background research and planning refinement
+- Comprehensive metrics: confusion matrices, ROC curves, PR curves
+- Feature importance analysis
+- Ethical trade-off documentation
 
-**Planned:**
-
-- Research existing AI detection methods (Turnitin, GPTZEro)
-- Find academic papers on AI text detection
-- Refine model comparison strategy
-- Plan evaluation metrics approach
-
-**Status:** Not Started
+**Deliverables:** Four trained models, evaluation framework, ensemble model
 
 ---
 
-### Day 6 - December 23, 2025
+## Phase 4: Interface & Documentation (Jan 8-10)
 
-**Goal:** Begin data preprocessing
+### Jan 8: Web Interface
 
-**Planned:**
+- Built Gradio application with custom CSS
+- Implemented real-time text analysis
+- Added example texts and statistis display
 
-- Create 02_data_preprocessing.ipynb
-- Handle class imbalance
-- Clean text data
-- Create train/validation/test splits (70/15/15)
+### Jan 9: Documentation & Polish
 
-**Status:** Not Started
+- Technical documentation (800 words)
+- Repositary organizatin and README
+- Code cleanup and commenting
 
----
+### Jan 10: Final Submission
 
-### Day 7 - December 24, 2025
+- Final testing and verification
+- Documentation review
+- Project submission
 
-**Goal:** Create reusable preprocessing functions
-
-**Planned:**
-
-- Create src/data_preprocessing.py module
-- Write reusable functions with docstrings
-- Refactor notebook to use module
-
-**Status:** Not Started
+**Deliverables:** Web interface, complete documentation, polished repository
 
 ---
 
-## Week 2: Feature Engineering & Baseline Models
+## Key Milestones
 
-Not Started
-
----
-
-## Key Decisions Made
-
-1. **Sampling Strategy:** Using 10% stratified sample for exploration/development, full dataset for final training
-2. **Data Format:** Saved as parquet for efficiency
-3. **Visualization Style:** Professional formatting with clear labels and titles
-4. **Documentation:** Extensive markdown cells in notebooks explaining reasoning
-
----
-
-## Technical Notes
-
-- Dataset: artem9k/ai-text-detection-pile from Hugging Face
-- Sample: 10% stratified (maintain 2.82:1 class distribution)
-- Visualization library: matplotlib + seaborn
-- Development approach: Sample for exploration, full dataset for training
+| Date   | Milestone                    | Status |
+| ------ | ---------------------------- | ------ |
+| Dec 18 | Project initialized          | ✅     |
+| Dec 24 | Data exploration complete    | ✅     |
+| Dec 31 | Feature engineering complete | ✅     |
+| Jan 4  | All models trained           | ✅     |
+| Jan 6  | Ensemble model finalized     | ✅     |
+| Jan 8  | Web interface deployed       | ✅     |
+| Jan 10 | Final submission             | ✅     |
 
 ---
 
-## Assessments Requirements Tracking
+## Technical Decisions Log
 
-### Model Development (50%) - In Progress
+### Data Processing
 
-- [ ] Multiple algorithms implemented
-- [x] Dataset loaded and understood
-- [ ] Feature engineering completed
-- [ ] Comprehensive evaluation
-- [ ] Results well-presented
+- **Decision:** Use 30% stratified sample
+- **Raitonale:** Balance between computational constraints and model performance
+- **Outcome:** Maintained class distribution, enabled efficient iteration
 
-### Technique (30%) - In Progress
+### Feature Engineering
 
-- [x] Data exploration completed
-- [ ] Data preprocessing implemented
-- [ ] Multiple models compared
-- [ ] Hyperparamter tuning
-- [ ] Proper evaluation methodology
+- **Decision:** TF-IDF with 5000 features, unigrams + bigrams
+- **Raitonale:** Capture bothy individual words and phrases
+- **Outcome:** Effective feature representation without excessive dimensionality
 
-### Documentation (20%) - Not Started
+### Class Imbalance
 
-- [x] Github repository structure created
-- [x] README.md with identification
-- [ ] 800-word technical document
-- [ ] Critical reflection
-- [ ] Proper terminology usage
+- **Decision:** Cost-sensitive learning with classs weights
+- **Rationale:** Preserve all data rather than undersampling
+- **Outcome:** Better performance than balanced sampling approaches
+
+### Model Selection
+
+- **Decision:** LR + XGBoost ensemble only
+- **Rationale:** Strategic selection based on complementary strengths
+- **Outcome:** 85.16% precision vs 72.98% with all four models
+
+### Precision Priority
+
+- **Decision:** Optimize for precision over recall
+- **Rationale:** False accusations more harmful in academic context
+- **Outcome:** Ethical considerations integrated into model design
 
 ---
 
-**Last Updated:** December 19, 2025, 3:30am
+## Challenges & Solutions
+
+### Challenge 1: Class Imbalance
+
+- **Problem:** 2.82:1 ratio affecting model performance
+- **Solution:** Cost-sensitive learning with calculated class weights
+- **Learning:** Better than undersampling which loses informatino
+
+### Challenge 2: Ensemble Performance
+
+- **Problem:** Four-model ensemble worse than individual models
+- **Solution:** Strategic two-model selection (LR + XGBoost)
+- **Learning:** Model compatibilty matters more than quantity
+
+### Challenge 3: Computational Constraints
+
+- **Problem:** Mac unable to process 1.39M samples
+- **Solution:** Stratified 30% sampling
+- **Learning:** Smart sampling maintains statistical properties
+
+### Challenge 4: Dataset Age
+
+- **Problem:** Training data from 2021-2022, older AI patterns
+- **Solution:** Documented as limitation, discussed modern AI evasion
+- **Learning:** Model generalization limitations acknowledged
+
+---
+
+## Resulst Summary
+
+### Final Model Performance
+
+- **Precision:** 85.16% (minimize false accusaitons)
+- **Recall:** 81.24% (reasonable detection rate)
+- **F1-Score:** 83.15%
+- **Accuracy:** 91.39%
+
+### Comparison to Targets
+
+- Precision > 80% achieved
+- Professional-grade system built
+- Ethical considerations integrated
+- Web interface deployed
+- Complete documentation
+
+---
+
+## Lessons Learend
+
+1. **Precision Matters in Context** - Academic integrity requires prioritizing false positive avoidance
+2. **Ensemble Intelligence** - Strategic seleciton beets "throw everything in" approach
+3. **Dataset Age Matters** - AI text patterns evolve, model training data becomes outdated
+4. **Cost-Sensitive Learning** - Effective for imbalanced classes without data loss
+5. **Iterative Experimentation** - Testing multiple approahes reveals optimal solutions
+
+---
+
+## Files Delivered
+
+- `01_data_exploration.ipynb` - Initial data analysis
+- `02_data_preprocessing.ipynb` - Data Cleaning and splitting
+- `03_model_training.ipynb` - Model Development and evaluation
+- `04_ensemble_experiments.ipynb` - Weighting and Soft Voting ensemble experiments
+- `05_final_model.ipynb` - Final LR + XGBoost model
+- `app.py` - Gradio web interface
+- `style.css` - Custom styling
+- `README.md` - Project documentation
+- `requirements.txt` - Dependencies
+- `models/saved_models/` - Trained models (LR, XGBoost, ensemble)
+
+---
+
+## Time Investment
+
+- **Setup & Exploration:** 8 hours
+- **Data Processing:** 12 hours
+- **Model Development:** 25 hours
+- **Interface & Documentation:** 8 hours
+- **Testing & Polish:** 8 hours
+
+**Total:** ~61 hours over 24 days
+
+---
+
+**Project Status:** Complete and submitted January 10, 2026
